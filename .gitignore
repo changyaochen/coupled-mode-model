@@ -1,0 +1,13 @@
+# OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+# large .mat, .dat, .txt files
+*.txt
+*.dat
+*.mat
+*.ppt
+*.pptx
+
+# ignore subfolders
+/PythonParallelTemp*/
