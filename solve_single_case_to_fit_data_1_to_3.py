@@ -2,6 +2,8 @@
     This is my attempt to solve for the time-domain solution for
     PLL-condition self-sustaining oscillation
     Specifically for 1:3 condition
+    This is trying to respond the reviewer #2's request
+    
 """
 
 import os 
