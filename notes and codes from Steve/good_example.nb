@@ -1,0 +1,508 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18959,        498]
+NotebookOptionsPosition[     18701,        484]
+NotebookOutlinePosition[     19059,        500]
+CellTagsIndexPosition[     19016,        497]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", 
+     RowBox[{
+     "EOM", ",", "EOM1n", ",", " ", "EOM2n", ",", "A1", ",", "A2", ",", 
+      "pv"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"g12v", "=", "0.3"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"g11v", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"g22v", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"G1v", "=", ".6"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"G2v", "=", "1.6"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dc1v", "=", "1"}], ";"}], "\[IndentingNewLine]", " ", 
+   RowBox[{
+    RowBox[{"\[CapitalDelta]\[Omega]21v", "=", 
+     RowBox[{"-", "25"}]}], ";"}], " ", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"\[CapitalDelta]\[Omega]21v", "=", 
+      RowBox[{"2", " ", "Pi", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"3", " ", "64580"}], " ", "-", "199599"}], ")"}], "/", 
+        "G2v"}]}]}], ";"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Fv", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"w1v", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pv", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"g12", "\[Rule]", "g12v"}], ",", 
+       RowBox[{"g11", "\[Rule]", "g11v"}], ",", 
+       RowBox[{"g22", "\[Rule]", "g22v"}], ",", 
+       RowBox[{"G1", "\[Rule]", "G1v"}], ",", 
+       RowBox[{"G2", "\[Rule]", "G2v"}], ",", 
+       RowBox[{
+       "\[CapitalDelta]\[Omega]21", "->", "\[CapitalDelta]\[Omega]21v"}], ",", 
+       RowBox[{"w1", "\[Rule]", "w1v"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"EOM", "=", 
+     RowBox[{"Chop", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"EQA1", ",", "EQA2"}], "}"}], "/.", "pv"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"EOM1n", "=", 
+     RowBox[{"EOM", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"EOM2n", "=", 
+     RowBox[{"EOM", "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Mn", "=", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"Abs", "[", 
+          RowBox[{"A1", "[", "t", "]"}], "]"}], "2"], "/", "9"}], "+", " ", 
+       SuperscriptBox[
+        RowBox[{"Abs", "[", 
+         RowBox[{"A2", "[", "t", "]"}], "]"}], "2"]}], ")"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Eq3n", "=", 
+     RowBox[{"Eq3", "/.", "pv"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"qq", "=", "0.8"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"A10", "=", 
+     RowBox[{"qq", "  ", "3"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"A20", "=", 
+     RowBox[{
+      RowBox[{"-", "qq"}], " ", "2"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmax", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"soln", "=", 
+     RowBox[{"NDSolve", "[", " ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EOM1n", "\[Equal]", "0"}], ",", 
+         RowBox[{"EOM2n", "\[Equal]", "0"}], ",", 
+         RowBox[{
+          RowBox[{"A1", "[", "0", "]"}], "\[Equal]", "A10"}], ",", 
+         RowBox[{
+          RowBox[{"A2", "[", "0", "]"}], "\[Equal]", "A20"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"A1", "[", "t", "]"}], ",", 
+         RowBox[{"A2", "[", "t", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "tmax"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{",", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "35"}], ",", 
+     RowBox[{"PrecisionGoal", "\[Rule]", "11"}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{"A1", "[", "t", "]"}], "]"}], "/.", "soln"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<|A1|\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{"A2", "[", "t", "]"}], "]"}], "/.", "soln"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<|A2|\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{
+           RowBox[{"Abs", "[", "A10", "]"}], 
+           RowBox[{"Exp", "[", 
+            RowBox[{
+             RowBox[{"-", "G1v"}], " ", "t"}], "]"}]}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"Log", "[", 
+           RowBox[{"Abs", "[", 
+            RowBox[{"A1", "[", "t", "]"}], "]"}], "]"}], "/.", "soln"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+       RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<Log|A1|\>\""}]}], "]"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{
+           RowBox[{"Abs", "[", "A20", "]"}], 
+           RowBox[{"Exp", "[", 
+            RowBox[{
+             RowBox[{"-", "G2v"}], " ", "t"}], "]"}]}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"Log", "[", 
+           RowBox[{"Abs", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}], "]"}], "/.", "soln"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+       RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<Log|A2|\>\""}]}], "]"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Log", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", "A10", "]"}], 
+         RowBox[{"Exp", "[", 
+          RowBox[{
+           RowBox[{"-", "G1v"}], " ", "t"}], "]"}]}], "]"}], ",", 
+       RowBox[{"0", " ", 
+        RowBox[{"Log", "[", 
+         RowBox[{
+          RowBox[{"Abs", "[", "A10", "]"}], 
+          RowBox[{"Exp", "[", 
+           RowBox[{
+            RowBox[{"-", 
+             RowBox[{"(", 
+              RowBox[{"G1v", "+", "G2v"}], ")"}]}], " ", "t"}], "]"}]}], 
+         "]"}]}], ",", 
+       RowBox[{"Log", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", "A10", "]"}], 
+         RowBox[{"Exp", "[", 
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"g12v", "/", "3"}], "g11v"}], ")"}], "^", "2"}]}], " ",
+            "t"}], "]"}]}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"A1", "[", "t", "]"}], "]"}], "]"}], "/.", "soln"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Log|A1|\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Log", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", "A20", "]"}], 
+         RowBox[{"Exp", "[", 
+          RowBox[{
+           RowBox[{"-", "G2v"}], " ", "t"}], "]"}]}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"Abs", "[", 
+          RowBox[{"A2", "[", "t", "]"}], "]"}], "]"}], "/.", "soln"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Log|A2|\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"Mn", "/.", "soln"}], ")"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<M\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"Eq3n", "/.", "soln"}], ")"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<QE\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], "]"}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], "]"}]}]}], "}"}], "/.", 
+      "soln"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<(I,psi,polar)\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], "]"}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], "]"}]}], ",", "Mn"}], 
+       "}"}], "/.", "soln"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<(I,psi,M, polar)\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], ",", 
+          RowBox[{"2", "Pi"}], ",", 
+          RowBox[{"-", "Pi"}]}], "]"}], ",", 
+        RowBox[{"Log", "[", 
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], "]"}]}], " ", 
+       "}"}], "/.", "soln"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<(I,psi,Cartesian)\>\""}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], ",", 
+          RowBox[{"2", "Pi"}], ",", 
+          RowBox[{"-", "Pi"}]}], "]"}], ",", 
+        RowBox[{"Log", "[", 
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], "]"}], " ", ",", 
+        "Mn"}], "}"}], "/.", "soln"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<(I,psi,M,Cartesian)\>\""}]}], "]"}],
+    "\[IndentingNewLine]", 
+   RowBox[{"ParametricPlot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], "]"}]}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{"A1", "[", "t", "]"}], "]"}], "^", "2"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           RowBox[{"3", " ", 
+            RowBox[{"Arg", "[", 
+             RowBox[{"A1", "[", "t", "]"}], "]"}]}], "-", 
+           RowBox[{"Arg", "[", 
+            RowBox[{"A2", "[", "t", "]"}], "]"}]}], "]"}]}], ",", "Eq3n"}], 
+       "}"}], "/.", "soln"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "tmax"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotPoints", "\[Rule]", "300"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<(I,psi,QE)\>\""}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.695282462234503*^9, 3.695282469072878*^9}, 
+   3.695282544411347*^9, {3.695282684250223*^9, 3.6952827533320923`*^9}, {
+   3.695282803152038*^9, 3.695282820680036*^9}, {3.6952829507866*^9, 
+   3.695283123591609*^9}, {3.695283163933313*^9, 3.695283193381578*^9}, {
+   3.6952832895628977`*^9, 3.6952832970017014`*^9}, {3.695283374554839*^9, 
+   3.695283374936091*^9}, {3.695283517808123*^9, 3.695283520662489*^9}, {
+   3.695283563553442*^9, 3.695283632021955*^9}, {3.695283666613131*^9, 
+   3.695283701540917*^9}, {3.695283739269783*^9, 3.695283871106682*^9}, {
+   3.695283901446013*^9, 3.695283913370935*^9}, {3.6952840866230516`*^9, 
+   3.695284088366428*^9}, {3.6952841439620247`*^9, 3.6952843384789143`*^9}, 
+   3.695284391058737*^9, {3.695284482549014*^9, 3.695284572447879*^9}, {
+   3.6952846530229683`*^9, 3.695284666398316*^9}, {3.695284764818262*^9, 
+   3.695284793825378*^9}, {3.6952848255681067`*^9, 3.6952848498808002`*^9}, {
+   3.6952848867093067`*^9, 3.695284889314767*^9}, {3.695326100142913*^9, 
+   3.6953262041817837`*^9}, 3.695326503439313*^9, {3.6953265347527122`*^9, 
+   3.695326603800856*^9}, {3.695326657047114*^9, 3.695326907314528*^9}, {
+   3.695326958863345*^9, 3.6953269766937428`*^9}, {3.69532701215049*^9, 
+   3.695327065286704*^9}, {3.695560582143404*^9, 3.695560708509568*^9}, {
+   3.695560755862295*^9, 3.6955608213008337`*^9}, {3.6955608734597797`*^9, 
+   3.695560931307745*^9}, 3.695560971141931*^9, {3.695561299709991*^9, 
+   3.695561330707109*^9}, {3.695561368431986*^9, 3.695561372613084*^9}, {
+   3.695561422768045*^9, 3.695561425151309*^9}, {3.6955620508489923`*^9, 
+   3.695562232212717*^9}, {3.6955622672302322`*^9, 3.695562307423115*^9}, {
+   3.6955623549498177`*^9, 3.695562419987996*^9}, {3.695562495003244*^9, 
+   3.695562502199965*^9}, {3.6955625615185328`*^9, 3.6955625617728863`*^9}, {
+   3.695562602757924*^9, 3.6955627368094397`*^9}, {3.695562833159914*^9, 
+   3.695562842494212*^9}, {3.695564949641695*^9, 3.695565184780162*^9}, {
+   3.6955652602992907`*^9, 3.695565260937523*^9}, {3.6955653366797247`*^9, 
+   3.6955653369007587`*^9}, {3.695565443982544*^9, 3.6955655243701963`*^9}, 
+   3.695565561692335*^9, {3.695565607932948*^9, 3.695565686534746*^9}, {
+   3.695567863849461*^9, 3.69556786429418*^9}, {3.6955679079099197`*^9, 
+   3.695567945874645*^9}, {3.695568031019847*^9, 3.695568077561884*^9}, {
+   3.695568191937064*^9, 3.695568325583769*^9}, 3.695568363089965*^9, {
+   3.6957043385063477`*^9, 3.69570434214559*^9}, {3.6957043839910183`*^9, 
+   3.695704416740633*^9}, {3.6957044698797083`*^9, 3.69570447012467*^9}, {
+   3.6957045020409184`*^9, 3.695704593102215*^9}, {3.695704631850183*^9, 
+   3.695704714251481*^9}, 3.695704785626286*^9, {3.6957093855922937`*^9, 
+   3.695709447433173*^9}, {3.6957094799670477`*^9, 3.695709527484088*^9}, {
+   3.695709614533864*^9, 3.695709637550161*^9}, 3.69570967739292*^9, {
+   3.695709762189844*^9, 3.69570977032766*^9}, 3.695709803269025*^9, {
+   3.695709876359109*^9, 3.69570987816321*^9}, 3.695709918294285*^9, {
+   3.695710246379754*^9, 3.6957103182361393`*^9}, 3.6957104632285*^9, {
+   3.69571055909262*^9, 3.695710683181364*^9}, {3.695711059780507*^9, 
+   3.695711153545701*^9}, 3.696190399092012*^9, {3.696191231521644*^9, 
+   3.696191231900462*^9}, {3.696238769253126*^9, 3.696238825111723*^9}}]
+},
+WindowSize->{808, 652},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 25, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 18139, 462, 934, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
