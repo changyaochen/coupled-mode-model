@@ -34,6 +34,8 @@ from joblib import Parallel, delayed
 import multiprocessing
 from scipy.stats import mode;
 import math
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt;
 #from ccylib import myFFT, RTSA
      
@@ -300,7 +302,7 @@ def process_input(para):
 
     reference = int(max(Q1, Q2))
     time = np.linspace(0, 5*reference, 50*reference+1)
-    time = np.linspace(0, 1000, 10000+1);  # for debugging purpose
+    #time = np.linspace(0, 1000, 10000+1);  # for debugging purpose
 
     
     # ============ coupled oscillator case ============ 
@@ -452,7 +454,8 @@ def process_input(para):
     print('elasped time for calculating single ringdown is {} seconds'.format(os.times()[-1] - t_start_ss));
 
 def main():
-    para_list = np.logspace(-5, -3, 51);   
+    
+    para_list = np.logspace(-5, -3, 11);   
 #    num_cores = multiprocessing.cpu_count()	# BUG: finds all in /proc, should count cpuset instead [stern]
     num_cores = int(os.environ['PBS_NUM_PPN'])	# will work for nodes=1:....
     
