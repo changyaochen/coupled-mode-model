@@ -28,8 +28,8 @@ os.chdir(dname)
 def solvr_nonlinear_osc_2modes_NNM(Y, t, Q1=100.0, Q2=100.0, omega2=1.2, beta=1.0, gain=10.0, bound=0.01, J21=1.0, J12=1.0): 
     '''
     This is for the nonlinear normal mode (NNM)
-    x'' + 1/Q1 x' + x + beta^3 x + 3*beta/8 * sqrt(J * J') == 0
-    y'' + 1/Q2 y' + beta/8 * sqrt(J * J') == 0
+    x'' + 1/Q1 x' + x + beta^3 x + 3*beta/8 * sqrt(J * J') x^2 y == 0
+    y'' + 1/Q2 y' + beta/8 * sqrt(J * J') x^3 == 0
     '''
     return [
             Y[1], 
@@ -61,14 +61,14 @@ Q1, Q2 = 122680.0, 86505.0
 gain = 100000.0
 beta   = 5e-3
 omega2 = 1.0539 * 3    # here is the 1:3 model!
-J21    = 1.0e-2  # this is 'test' value
-J12    = 1.0e-2  # this is 'optimized' value, given Q1, Q2, and omega2, bound, J21  
+J21    = 1.0e-1  # this is 'test' value
+J12    = 1.0e-1  # this is 'optimized' value, given Q1, Q2, and omega2, bound, J21  
 bound = 0.5e-4
 para = 0
 
 
 reference = int(max(Q1, Q2)) 
-time = np.linspace(0, 10*reference, 100*reference+1) 
+time = np.linspace(0, 10*reference, 50*reference+1) 
 #time = np.linspace(0, 7000, 1000+1)   # for debugging purpose
 
 # ============= start the numerical process! =================
