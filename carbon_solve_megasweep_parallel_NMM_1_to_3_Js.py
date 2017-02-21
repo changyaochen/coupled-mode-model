@@ -379,17 +379,18 @@ def process_input(para):
     if save_file == 1:
         np.savetxt(os.path.join(os.getcwd(),temp_folder) + '/ss_Js_' + str(para) + '.txt',
                    np.hstack([time[:,np.newaxis], Assol]))
-    #if save_file_FFT == 1:
-    #    if not os.path.exists(temp_folder):
-    #        os.makedirs(temp_folder)
-    #    idx_low, idx_high = np.argmax(2*np.pi*freq1 > 0.5), np.argmin(2*np.pi*freq1 < 1.7)
-    #    freq1, fft_out1, fft_out2 = freq1[idx_low:idx_high], fft_out1[idx_low:idx_high], fft_out2[idx_low:idx_high]
-    #    to_save = np.vstack([2*np.pi*freq1, np.log(fft_out1.real), np.log(fft_out2.real), para*np.ones(freq1.shape[0])])
-    #    to_save = np.transpose(to_save)
-    #    with open(os.path.join(os.getcwd(),temp_folder) + '/' + str(para) + '.txt','w') as FFT_file:
-    #        np.savetxt(FFT_file, to_save, fmt='%10.6f')
-    #    print; print 'Saved data with parameter = {}'.format(para)
-    #    #return to_save
+    if doRTSA:
+      RTSA(time, Assol[:,0], 100)
+      prettify_figure('Frequency', 'time', 'real-time spectrum, to_steady_state, mode 1')
+      plt.ylim([1.0, 1.1])
+      plt.yscale('linear')
+      plt.savefig(os.path.join(os.getcwd(),temp_folder) + '/RTSA_ss_mode1_Js_' + str(para) + '.png', dpi = 400)
+      
+      RTSA(time, Assol[:,2], 200)
+      prettify_figure('Frequency', 'time', 'real-time spectrum, to steady_state, mode 2')
+      plt.ylim([3.0, 3.5])  
+      plt.yscale('linear')  
+      plt.savefig(os.path.join(os.getcwd(),temp_folder) + '/RTSA_ss_mode2_Js_' + str(para) + '.png', dpi = 400)
     
     print; print('elasped time for calculating single steady-state is {} seconds'.format(os.times()[-1] - t_start_ss)); 
     
@@ -470,7 +471,7 @@ def process_input(para):
 
 def main():
     
-    para_list = np.logspace(-4, -2, 51);   
+    para_list = np.logspace(-2, 0, 41);   
 #    num_cores = multiprocessing.cpu_count()	# BUG: finds all in /proc, should count cpuset instead [stern]
     num_cores = int(os.environ['PBS_NUM_PPN'])	# will work for nodes=1:....
     
