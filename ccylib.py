@@ -180,11 +180,17 @@ def solvr_nonlinear_osc_2modes(Y, t, Q1=100.0, Q2=100.0, omega2=1.2, beta=1.0, g
             ] 
     
 
-def prettify_figure(ylabel = 'y label', xlable = 'x label', title = 'title', grid = 'off'):
+def prettify_figure(ylabel = 'y label', xlable = 'x label', 
+                    title = 'title', grid = 'off', font_size = 18):
     pass
     plt.ylabel(ylabel, size = 'x-large')
     plt.xlabel(xlable, size = 'x-large')
     plt.title(title, size = 'x-large')
+    
+    ax = plt.gca()
+    for item in ([ax.title, ax.xaxis.label, ax.yaxis.label] +
+             ax.get_xticklabels() + ax.get_yticklabels()):
+      item.set_fontsize(font_size)
     
     fig = plt.gcf()
     fig.set_facecolor('white')   
