@@ -58,6 +58,8 @@ $$S_F(\omega) = \frac{1}{2\pi} \int_{-\infty}^{\infty}K(s) e^{-i\omega s} \text{
 
 Note that the prefactor $1/2\pi$ is by convention (see [here](https://en.wikipedia.org/wiki/Fourier_transform#Other_conventions)). 
 
+How this information can help us in this case, though we haven't touched the simulation in time domain yet?
+
 ### Time domain simulation
 This is all nice, but it doesn't help me to simulate the *time domain* response! In simulating the previous deterministic case, at time step $t_i$, I have a well-defind value of force at time step $t_i + \Delta t$. In this case, what should I use? Shall I just throw in, say, a normally distributed value? At least normal distributed noise has a mean of zero. 
 
