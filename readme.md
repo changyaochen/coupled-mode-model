@@ -58,7 +58,20 @@ $$S_F(\omega) = \frac{1}{2\pi} \int_{-\infty}^{\infty}K(s) e^{-i\omega s} \text{
 
 Note that the prefactor $1/2\pi$ is by convention (see [here](https://en.wikipedia.org/wiki/Fourier_transform#Other_conventions)). 
 
-How this information can help us in this case, though we haven't touched the simulation in time domain yet?
+How this information can help us in this case, though we haven't touched the simulation in time domain yet? Let me revoke again the governing Langevin equation, and let me further assume the solution has form of $\hat{x}(\omega) e^{i\omega t}$, and assume break down the random thermal force with different frequency contributions, with the frequency components of $\hat{F}(\omega)e^{i\omega t}$. Given that, I can solve for the $x(\omega)$ as:
+
+$$\hat{x}(\omega) = \frac{1}{m}\frac{\hat{F}(\omega)}{(\omega_0^2 - \omega^2) + i\omega_0 \omega / Q }.$$
+
+Given the stochastic nature of the force, we have to look at the power density of $x$, then we have:
+
+$$S_x(\omega) = \Big[\frac{1}{m}\frac{1}{(\omega_0^2 - \omega^2) + i\omega_0 \omega / Q}\Big]
+\Big[\frac{1}{m}\frac{1}{(\omega_0^2 - \omega^2) + i\omega_0 \omega / Q}\Big]^* S_F(\omega),$$
+
+therefore we finally have the famous equation of:
+
+$$S_x(\omega) = \frac{1}{m^2}\frac{S_F(\omega)}{(\omega_0^2 - \omega^2)^2 + \omega_0^2 \omega^2 / Q^2}.$$
+
+If one integrate the $S_x(\omega)$, from $-\infty$ to $+\infty$, it will be equivalent to integrating $S_F(\omega)$, and due to the equipartition theorem, this (the integral, $i.e.$, the area under $S_x(\omega)$) should be *proportional* to the oscillator temperature. If there is no active cooling involved ($e.g.$ feedback cooling, side-band cooling), the oscillator temperature is the same as the bath temperature. However, what exactly is the proportionality factor between the oscillator temperature and the arae requires calibration. See [here](https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.101.197203) and the references and citations for more readings. 
 
 ### Time domain simulation
 This is all nice, but it doesn't help me to simulate the *time domain* response! In simulating the previous deterministic case, at time step $t_i$, I have a well-defind value of force at time step $t_i + \Delta t$. In this case, what should I use? Shall I just throw in, say, a normally distributed value? At least normal distributed noise has a mean of zero. 
