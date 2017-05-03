@@ -43,15 +43,25 @@ Now let me consider a different case, called case 2. The difference here is that
 
 ![alt text](figure_dumps/fig1_explanation_2.png "case2")
 
-The most striking difference between case 2 and case 1 is that, the frequency of the blue and yellow branches are no longer mirroring each other (with respect to the linear resonant frequency of mode 2), but both of them are bending downwards. Same behavior can be found in the $A$ vs $Delta$ (or equivalently, $\phi0$) figure. 
+The most striking difference between case 2 and case 1 is that, the frequency of the blue and yellow branches are no longer mirroring each other (with respect to the linear resonant frequency of mode 2), but both of them are bending downwards. Same behavior can be found in the $A$ vs $\Delta$ (or equivalently, $\phi0$) figure. 
 
-The question is why? This downward bending can be understood due to the softening Duffing nonlinearity of mode 2. As mode 2 is being built ($B$ increasing), the Duffing nonlinearity kicks in, downshifting its oscillation frequency from its linear value (set to 1.1 here), therefore, for s.s., the IR frequency will be downshifted as a result. The amount of downshifting of IR frequency is proportional to how "nonlinear" mode 2 is. Therefore, the larger the value of $B$, the more the downshift of IR frequency. This is consistent with what we are seeing here.  
+The question is why? This downward bending can be understood due to the softening Duffing nonlinearity of mode 2. As mode 2 is being built (as $B$ is increasing), the Duffing nonlinearity kicks in, downshifting its oscillation frequency from its linear value (set to 1.1 here), therefore, for s.s., the IR frequency will be downshifted as a result. The amount of downshifting of IR frequency is proportional to how "nonlinear" mode 2 is. Therefore, the larger the value of $B$, the more the downshift of IR frequency. This is consistent with what we are seeing here.  
 
-In orde to validate my hypothesis, I will consider another case, in which \beta_2$ (or equivalently, $\rho$) is ***positive***
+In order to validate my hypothesis, I will consider another case, in which $\beta_2$ (or equivalently, $\rho$) is ***positive***. In this case, both $A$ vs $\Delta$ (or equivalently, $\phi0$), and FreqA vs $\Delta$ (or equivalently, $\phi0$) should buckle up. Not surprising, it is what we see. 
 
+![alt text](figure_dumps/fig1_explanation_3.png "case3")
 
+## Solving for the model, ringdown
 
+Now we have obtained the s.s. solutions, and explored some parameter space, we can move to simulate the rindown responses. This will be a purly numerical exercise since it is impossible to obtain analytical solutions. Again, the numerical simulations are carried out with Mathematica, and the script is saved in the `scripts` folder, named `!=nonlinear MEMS calculations transient 1to1.nb`. 
 
+Let me run the ringdown simulations for all the three cases in the s.s. section, so that we have a good correspondence. In order to keep things simple, I will choose the value of $\Delta$ (or equivalently, $\phi0$) to be $\pi/2$, in the hope that it will "amplify" the effects of the IR the most. I will be focusing on three datasets: $A$ vs $t$, $B$ vs $t$, and $\eta$ vs $t$.
+
+![alt text](figure_dumps/fig1_explanation_4.png "rd_case1")
+![alt text](figure_dumps/fig1_explanation_5.png "rd_case2")
+![alt text](figure_dumps/fig1_explanation_6.png "rd_case3")
+
+From the above results, it is clear that, by varying the values (or signs) of $\beta_2$ (or equivalently, $\rho$), one can control the "slope" of $A$ vs $t$ during coherent time. This again, can be understood through the how the nonlinearity of mode 2 affects IR. Take the case 2, where $\beta_2$ (or equivalently, $\rho$) is negative as example: at s.s., which is the initial condition for the ringdown, mode 2 is driven nonlinearly, hence the IR frequency is below $\nu$. Once the ringdow starts, the amplitude of mode 2, $B$ starts to decrease, and so its oscillation frequency, and, so is the IR frequency. Recalling the s.s. picture, $c.f.$, $A$ vs $\Delta$, it is like (this is a big jump in logic) travelling from $\Delta = \pi/2$ (the initial condition) to a smaller $\Delta$ value. In such process, $A$ actually becomes larger, until the end of coherent time.  
 
 
 

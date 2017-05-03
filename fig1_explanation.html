@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>fig1_explanation</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">(Potential) Figure 1</h1>
+
+<p>The purpose of the following text is to document the thinking process and the details to create the figure 1 for the intended PRL paper on IR ringdown. </p>
+
+<h2 id="toc_1">The model</h2>
+
+<p>The underlying model is very similar to what we have been using: a nonlinear oscillator (denoted as mode \(x_1\)) coupled to another oscillator (denoted as mode \(x_2\)). This time, the difference is that we consider a more general case that mode \(x_2\) is allowed to be nonlinear as well. Putting things into equations, the model becomes:
+\[
+\ddot{x}_1 + \gamma_1 \dot{x}_1 + x_1 + \frac 4 3 \beta_1 x_1^3 = F_\text{ext} + J_{21} x_2
+\]
+\[
+\ddot{x}_2 + \gamma_2 \dot{x}_2 + \Omega_2^2 x_2 + \frac 4 3 \beta_2 x_2^3 = J_{12} x_1
+\]
+Let me unpack the above equations. First, we are assuming the effective masses of the two modes are the same, hence they are simply scaled out. Next, the time scales of the above equations is normalized to the linear resonant frequency of mode \(x_1\), in another word, under such time scale, the resonant frequency of mode \(x_1\) is 1. Correspondingly, the resonant frequency for mode 2, \(\Omega_2\), shown in above, is scaled with respect to resonant frequency of mode 1. If \(\Omega_2\) = 1, it simply means the linear resonant frequency for mode 2 is the same as mode 1. Furthermore, we are considering the case where both modes can have non-zero Duffing coefficients (\(\beta_1, \beta_2 \neq 0\)), whose values can be either positive or negative. The coupling between the two modes are considered linear, which is the simpliest case. Only mode 1 receives external force, whose amplitude and frequency are either pre-determined (open-loop case), or determined self-consistently (closed-loop case).</p>
+
+<h2 id="toc_2">Solving for the model, steady-state</h2>
+
+<p>Now we written down the model equations, the next step is to find the solutions. There are two types of solutions that we are interested in: steady-state (s.s.) and transient. The former describes whether there will be a stable oscillation, for either/both mode 1 and mode 2, and the latter will describe how we can get to the steady-state, and more importantly, how the model will depart from the steady-state, \(i.e.\) ringdowns. It it worth noting that, in order to examine the ringdown, one needs to solve for the steady-state solution first, which will be used as the initial conditions.</p>
+
+<p>In order to solve for the s.s. solutions analytically, we are going to make some assumptions. To be clear, these assumptions will allow us to perform some arithmetic operations (hence, analytical), until a point that we will evoke numerical procedures to arrive at the final solutions. This scheme is much better than brutely applying the numerical procedures at the outset, for which can be time-consuming, and bears no physcial insight. </p>
+
+<p>The assumptions are the same as we made in the 2016 PRL paper, namely:</p>
+
+<ol>
+<li>\(\beta_1\) &gt; 0, such that the oscillation frequency of mode 1 can be tuned upwards</li>
+<li>The linear resonant frequency of mode 2, \(\Omega_2\), is slightly larger than 1, \(i.e.\), \(\Omega_2 = 1 + \nu\)</li>
+<li>The external force, \(F_\text{ext}\), is derived from the responses of the system itself, \(i.e.\), we are considering closed-loop case, and the phase of \(F_\text{ext}\) can be controlled, and is used to tune the oscillation frequency of mode 1</li>
+<li>We are only considering the solution where mode 1 and mode 2 have the <strong><em>same</em></strong> frequency</li>
+</ol>
+
+<p>Equipped with these assumption, we can move on to perform some arithmetic operations. The details are outlined in the Supplementary Information (SI) of our 2017 Nature Commun. paper, Supplementary Note 3 (SN 3). Briefly, we assume the solution of mode 1 as \(x_1(t) = A(t) \cos{[t + \alpha(t)]}\), and the solution of mode 2 as \(x_2(t) = B(t) \cos{[t + \zeta(t)]}\), in which \(A, B, \alpha, \zeta\) are all functions of \(t\), but they change slowly such that we will only consider their first order time derivatives. In another word, terms like \(\text{d}^2 A / \text{d} t^2\) are zero. </p>
+
+<p>According to the assumption 3 above, we will treat \(F_\text{ext}\) with the same frequency as mode 1, but with an phase offset. Specifically, we will treat \(F_\text{ext} = f_0 \cos{[\phi(t) + \Delta]}\), where \(\phi(t) = t + \alpha(t)\), and \(\Delta\) is a constant value that controlled by the experimenter. This will be the controlled paramter that allows one to set different s.s. conditions. </p>
+
+<p>After these manipulations, we can will arrive at the s.s. solutions for {\(A, B, \alpha, \zeta\)} for different \(\Delta\). Let me do one more trick, is that I will be looking at {\(A, B, \omega, \eta\)} for different \(\Delta\), where \(\omega = \text{d} \phi / \text{d} t\), and \(\eta = \zeta - \alpha\). Here \(\omega\) is the s.s. oscillation frequency for both mode 1 and mode 2 (since they are the same, per assumpion 4 above), and \(\eta\) is the phase different between mode 2 and mode 1. The physical meaning of \(\eta\) is interpreted as the direction of energy flow: a positive \(\eta\) means the phase of mode 2 is leading that of mode 1, therefore, mode 2 is <strong><em>sending</em></strong> energy to mode 1, and vice versa. </p>
+
+<p>The final form of the arithmetic operation is shown as equations 9 in the SI of the 2017 Nature Commun. paper, and they mark the end of analytical manipulations. From here on, I will evoke numerical perocedures (Mathematica), to solve the values of {\(A, B, \omega, \eta\)} for different \(\Delta\). The script is located in the <code>scripts</code> folder, named <code>!==nonlinear MEMS calculations steady state 1to1.nb</code>. In this specific script, I&rsquo;ve assigned the values of \(J_{21}, J_{12}, \beta_1, \beta_2, f_0\) to be the best combination, such that we can best demonstrate the characteristics of the coupled-mode system. Note that, in the script, \(J\) is \(J_{12}\) in the model described here, \(J&#39;\) is \(J_{21}\), \(\phi0\) is \(\Delta\), \(\beta\) is \(\beta_1\), \(\rho\) is \(\beta_2\), and \(\psi\) is \(\eta\). </p>
+
+<p>Let me highlight some representative cases. First let me consider the <q>poster-child</q> case where mode 2 is <strong><em>linear</em></strong>, and I tune the value of \(\Delta\) (or equivalently, \(\phi0\)) to access IR. The result is shown below: the second row is the zoom-in views of the corresponding figures in the first row, except for the middle figure in the second row. </p>
+
+<p><img src="figure_dumps/fig1_explanation_1.png" alt="alt text" title="case1"></p>
+
+<p>It is clear that, for some values of \(\Delta\) (or equivalently, \(\phi0\)), there are multiple (three) s.s. solutions (marked with different colors). It turns out only two of them are stable, \(i.e.\), observable in experiments. In this specific case, the stable solutions are the blue and green branches. The discussion of stability is beyond the scope of discussion here, but if it is needed, it can be obtained. </p>
+
+<p>The most interesting values of \(\Delta\) (or equivalently, \(\phi0\)) here are around \(\pi/2\), where we can see that \(B\) has positive value (the blue solution). This simply means that mode 2 is excited. This is further supported by the fact the phase difference is negative for the blue branch. According to our interpretation of the phase difference, it means mode 1 is sending energy to mode 2, such that mode 2 can be built. Here, the blue branch is what we called IR, since its oscillation frequency is <strong><em>very close to, but below</em></strong> the linear resonant frequency of mode 2 (set to 1.1 here), and this branch is mirrored by the unstable (yellow) branch. </p>
+
+<p>Now let me consider a different case, called case 2. The difference here is that, I will allow \(\beta_2\) (or equivalently, \(\rho\)) become <strong><em>negative</em></strong>. This case corresponds to our experimental condition that mode 2 (torsional mode, with softening Duffing nonlinearity) is driven nonlinearly. </p>
+
+<p><img src="figure_dumps/fig1_explanation_2.png" alt="alt text" title="case2"></p>
+
+<p>The most striking difference between case 2 and case 1 is that, the frequency of the blue and yellow branches are no longer mirroring each other (with respect to the linear resonant frequency of mode 2), but both of them are bending downwards. Same behavior can be found in the \(A\) vs \(\Delta\) (or equivalently, \(\phi0\)) figure. </p>
+
+<p>The question is why? This downward bending can be understood due to the softening Duffing nonlinearity of mode 2. As mode 2 is being built (as \(B\) is increasing), the Duffing nonlinearity kicks in, downshifting its oscillation frequency from its linear value (set to 1.1 here), therefore, for s.s., the IR frequency will be downshifted as a result. The amount of downshifting of IR frequency is proportional to how <q>nonlinear</q> mode 2 is. Therefore, the larger the value of \(B\), the more the downshift of IR frequency. This is consistent with what we are seeing here.  </p>
+
+<p>In order to validate my hypothesis, I will consider another case, in which \(\beta_2\) (or equivalently, \(\rho\)) is <strong><em>positive</em></strong>. In this case, both \(A\) vs \(\Delta\) (or equivalently, \(\phi0\)), and FreqA vs \(\Delta\) (or equivalently, \(\phi0\)) should buckle up. Not surprising, it is what we see. </p>
+
+<p><img src="figure_dumps/fig1_explanation_3.png" alt="alt text" title="case3"></p>
+
+<h2 id="toc_3">Solving for the model, ringdown</h2>
+
+<p>Now we have obtained the s.s. solutions, and explored some parameter space, we can move to simulate the rindown responses. This will be a purly numerical exercise since it is impossible to obtain analytical solutions. Again, the numerical simulations are carried out with Mathematica, and the script is saved in the <code>scripts</code> folder, named <code>!=nonlinear MEMS calculations transient 1to1.nb</code>. </p>
+
+<p>Let me run the ringdown simulations for all the three cases in the s.s. section, so that we have a good correspondence. In order to keep things simple, I will choose the value of \(\Delta\) (or equivalently, \(\phi0\)) to be \(\pi/2\), in the hope that it will <q>amplify</q> the effects of the IR the most. I will be focusing on three datasets: \(A\) vs \(t\), \(B\) vs \(t\), and \(\eta\) vs \(t\).</p>
+
+<p><img src="figure_dumps/fig1_explanation_4.png" alt="alt text" title="rd_case1">
+<img src="figure_dumps/fig1_explanation_5.png" alt="alt text" title="rd_case2">
+<img src="figure_dumps/fig1_explanation_6.png" alt="alt text" title="rd_case3"></p>
+
+<p>From the above results, it is clear that, by varying the values (or signs) of \(\beta_2\) (or equivalently, \(\rho\)), one can control the <q>slope</q> of \(A\) vs \(t\) during coherent time. This again, can be understood through the how the nonlinearity of mode 2 affects IR. Take the case 2, where \(\beta_2\) (or equivalently, \(\rho\)) is negative as example: at s.s., which is the initial condition for the ringdown, mode 2 is driven nonlinearly, hence the IR frequency is below \(\nu\). Once the ringdow starts, the amplitude of mode 2, \(B\) starts to decrease, and so its oscillation frequency, and, so is the IR frequency. Recalling the s.s. picture, \(c.f.\), \(A\) vs \(\Delta\), it is like (this is a big jump in logic) travelling from \(\Delta = \pi/2\) (the initial condition) to a smaller \(\Delta\) value. In such process, \(A\) actually becomes larger, until the end of coherent time.  </p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
